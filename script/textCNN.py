@@ -60,7 +60,7 @@ class DataProcessor():
             te = json.loads(f.read())
         test = torch.zeros(len(te), self.max_seq_len, dtype=torch.long)
         for i, d in enumerate(te):
-            sentence = d['text'][:self.max_seq_len]
+            sentence = d[:self.max_seq_len]
             for j, word in enumerate(sentence):
                 if word not in self.word2id:
                     word = '<UNK>'
