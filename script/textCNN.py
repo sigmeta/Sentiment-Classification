@@ -115,9 +115,9 @@ def main(opt, epochs=1, output_file="data/res.json"):
     with torch.no_grad():
         for i,inputs in enumerate(tqdm(test_dataloader, desc="Iteration")):
             if torch.cuda.is_available():
-                inputs = inputs.cuda()
+                inputs = inputs[0].cuda()
             outputs=net(inputs)
-            rlist+=np.argmax(outputs,axis=1).tolist()
+            rlist+=np.argmax(outputs.cpu(),axis=1).tolist()
     with open(output_file,'w') as f:
         f.write(json.dumps(rlist))
 
