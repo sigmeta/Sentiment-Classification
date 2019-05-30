@@ -98,7 +98,7 @@ def main(opt, epochs=1, output_file="data/res.json"):
 
             # forward + backward + optimize
             outputs = net(inputs)
-            print(outputs.size())
+            #print(outputs.size())
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
