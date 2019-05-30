@@ -78,6 +78,8 @@ def main(opt, epochs=1, output_file="data/res.json"):
         weight=weight.cuda()
 
     net=LSTMText(opt, weight)
+    if torch.cuda.is_available():
+        net=net.cuda()
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=0.001)
 
