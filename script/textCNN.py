@@ -71,7 +71,7 @@ class DataProcessor():
         return test_dataloader
 
 
-def main(opt, epochs=1, output_file="data/res.json"):
+def main(opt, epochs=1, output_file="../data/res.json"):
     processor = DataProcessor()
     weight = processor.get_embedding()
     if torch.cuda.is_available():
