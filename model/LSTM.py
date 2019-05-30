@@ -15,7 +15,7 @@ class LSTMText(nn.Module):
         self.embed=nn.Embedding.from_pretrained(weight)
         self.embed.weight.requires_grad = False
         self.lstm=nn.LSTM(input_size=opt["embedding_dim"],hidden_size=opt["content_dim"]//2,
-                          num_layers=1,batch_first=True,dropout=opt['dropout'],
+                          num_layers=1,batch_first=True,dropout=0,
                           bidirectional=True)
         self.dense=nn.Linear(opt['content_dim'],64)
         self.out=nn.Linear(64,2)

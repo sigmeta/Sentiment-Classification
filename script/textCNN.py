@@ -74,6 +74,8 @@ class DataProcessor():
 def main(opt, epochs=1, output_file="data/res.json"):
     processor = DataProcessor()
     weight = processor.get_embedding()
+    if torch.cuda.is_available():
+        weight=weight.cuda()
 
     net=LSTMText(opt, weight)
     criterion = nn.CrossEntropyLoss()
@@ -121,7 +123,7 @@ def main(opt, epochs=1, output_file="data/res.json"):
 if __name__=='__main__':
     opt = {}
     opt["content_dim"] = 256
-    opt["embedding_dim"] = 10
+    opt["embedding_dim"] = 128
     opt["linear_hidden_size"] = 128
     opt["content_seq_len"] = 500
     opt['dropout']=0.1
