@@ -57,7 +57,7 @@ fastcache==1.0.2
 fasttext-win==0.8.3
 filelock==3.0.4
 Flask==1.0.2
-Flask-Cors==3.0.4
+Flask-Cors==3.0.9
 future==0.17.1
 gast==0.2.2
 gensim==3.4.0
